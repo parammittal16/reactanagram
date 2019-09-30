@@ -21,7 +21,7 @@ class home extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                <div className="App-logo"><h1 style={{'fontSize': '5rem'}}>REACTANAGRAM</h1><img src={logo}  alt="logo" /></div>
+                <div className="App-logo"><h1 style={{'fontSize': '5rem'}}>REACTANAGRAM</h1><img style={{'height':'200px'}} src={logo}  alt="logo" /></div>
                 <p>
                     ENTER YOUR NAME
                 </p>

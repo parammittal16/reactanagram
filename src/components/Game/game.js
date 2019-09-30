@@ -9,7 +9,7 @@ import {connect } from 'react-redux';
 class game extends Component {
     state = { 
         time: {},
-        seconds: 30,
+        seconds: 300,
         cluster: [],
         score: 0,
         index: 0,
@@ -173,7 +173,8 @@ HandleChange = (e) => {
     }
 }
 end() {
-    alert();
+    alert(`Thnks for playing your score is : ${this.state.score}. Press ok to play again}`);
+    this.props.history.push("/");
 }
 prepareCluster(arr)
 {
@@ -198,29 +199,19 @@ render() {
     }
     return (
         <div className="App">
-        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img style={{'height': '50px'}} src={logo}/></a>
+        <nav class="navbar navbar-expand-lg sticky-top text-white" style={{"height":"10vh", "backgroundColor":"rgb(54, 0, 116)"}}>
+        <a class="navbar-brand" href="/"><img style={{'height': '9vh'}} src={logo} alt=""/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-        </li>
-        </ul>
+        <div class="collapse navbar-collapse text-white" id="navbarText">
         <span class="navbar-text">
-        {this.props.name.name}
+        Welcome {this.props.name.name}
         </span>
         </div>
+        Moves: {this.state.moves}
         </nav>
-        <header className="App-header">
+        <header className="App-header" style={{'height': '90vh'}}>
         <div>
         <h2>Time - {this.state.time.m} min : {this.state.time.s} sec</h2>
         <h2>Score - {this.state.score}</h2>
@@ -228,7 +219,7 @@ render() {
         <div style={{'fontSize': '9rem'}} class="word" id="wordOuter">
         {jumbledWord}
         </div>
-        <button onClick={this.HandleEnd}>END GAME</button>
+        <button className="btn btn-grad text-white" onClick={this.HandleEnd}>END GAME</button>
         </header>
         </div>
     )
